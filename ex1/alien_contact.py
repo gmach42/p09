@@ -4,7 +4,7 @@ from typing import Optional
 from enum import Enum
 
 try:
-    from pydantic import BaseModel, Field, model_validator
+    from pydantic import BaseModel, Field, model_validator, ValidationError
     from typing_extensions import Self
 except ImportError as e:
     print("ImportError:", e)

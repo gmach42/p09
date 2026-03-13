@@ -3,7 +3,7 @@ from typing import Optional
 from datetime import datetime
 
 try:
-    from pydantic import BaseModel, Field
+    from pydantic import BaseModel, Field, ValidationError
 except ImportError as e:
     print("ImportError:", e)
     sys.exit(1)

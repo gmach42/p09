@@ -6,6 +6,7 @@ try:
     from pydantic import BaseModel, Field, ValidationError
 except ImportError as e:
     print("ImportError:", e)
+    print("Please install pydantic via pip install pydantic\n")
     sys.exit(1)
 
 

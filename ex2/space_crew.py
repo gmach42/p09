@@ -7,6 +7,7 @@ try:
     from typing_extensions import Self
 except ImportError as e:
     print("ImportError:", e)
+    print("Please install pydantic via pip install pydantic\n")
     sys.exit(1)
 
 

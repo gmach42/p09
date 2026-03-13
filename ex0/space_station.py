@@ -68,7 +68,7 @@ def main():
         for error in e.errors():
             print(
                 f"Error: {error['msg']} (field: "
-                f"{error['loc'][0] if error['loc'] else 'model_validator'})"
+                f"{error['loc'][0] if error['loc'] else 'model_validator'})\n"
             )
 
 

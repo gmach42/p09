@@ -12,7 +12,7 @@ except ImportError as e:
 class SpaceStation(BaseModel):
     station_id: str = Field(min_length=3, max_length=10)
     name: str = Field(min_length=1, max_length=50)
-    crew_size: int = Field(ge=0, le=20)
+    crew_size: int = Field(ge=1, le=20)
     power_level: float = Field(ge=0.0, le=100.0)
     oxygen_level: float = Field(ge=0.0, le=100.0)
     last_maintenance: datetime
@@ -64,8 +64,12 @@ def main():
             notes="All systems functional."
         )
         print(invalid_station)
-    except Exception as e:
-        print(f"Validation error: {e}")
+    except ValidationError as e:
+        for error in e.errors():
+            print(
+                f"Error: {error['msg']} (field: "
+                f"{error['loc'][0] if error['loc'] else 'model_validator'})"
+            )
 
 
 if __name__ == "__main__":

@@ -1,6 +1,12 @@
-from pydantic import BaseModel, Field
-from datetime import datetime
+import sys
 from typing import Optional
+from datetime import datetime
+
+try:
+    from pydantic import BaseModel, Field
+except ImportError as e:
+    print("ImportError:", e)
+    sys.exit(1)
 
 
 class SpaceStation(BaseModel):

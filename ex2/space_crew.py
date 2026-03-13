@@ -1,7 +1,13 @@
-from pydantic import BaseModel, Field, model_validator
+import sys
 from datetime import datetime
-from typing_extensions import Self
 from enum import Enum
+
+try:
+    from pydantic import BaseModel, Field, model_validator
+    from typing_extensions import Self
+except ImportError as e:
+    print("ImportError:", e)
+    sys.exit(1)
 
 
 class Rank(Enum):
